@@ -26,5 +26,17 @@ impl Component for CounterComponent {
             }
         }
     }
+    fn view(&self, ctx: &Context<Self>) -> Html {
+        let link = ctx.link();
+        html! {
+            <div class="container">
+            <p>{ self.count }</p>
+            <button onclick={link.callback(|_|) Msg::AddOne}>{"+1"}</button>
+            </div>
+        }
+    }
 }
 
+fn main() {
+    yew::start_app::<CounterComponent>();
+}
